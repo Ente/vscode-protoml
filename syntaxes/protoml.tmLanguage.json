@@ -1,0 +1,62 @@
+{
+  "scopeName": "source.protoml",
+  "name": "ProtoML VSCode",
+  "displayName": "ProtoML Language Support",
+  "author": "Ente",
+  "fileTypes": ["pml"],
+  "patterns": [
+    { "include": "#commands" },
+    { "include": "#comments" },
+    { "include": "#headers" },
+    { "include": "#keys" }
+  ],
+  "repository": {
+    "commands": {
+      "patterns": [
+        {
+          "name": "meta.command.macro.protoml",
+          "match": "(@macro)\\s+([a-zA-Z0-9_]+)\\s+\"([^\"]+)\"",
+          "captures": {
+            "1": {
+              "name": "keyword.control.protoml"
+            },
+            "2": {
+              "name": "entity.name.function.protoml"
+            },
+            "3": {
+              "name": "string.quoted.double.protoml"
+            }
+          }
+        },
+        {
+          "match": "@{1,2}[a-zA-Z_]+",
+          "name": "keyword.control.protoml"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "match": "//.*$",
+          "name": "comment.line.double-slash.protoml"
+        }
+      ]
+    },
+    "headers": {
+      "patterns": [
+        {
+          "match": "^#{1,2} .*",
+          "name": "markup.heading.protoml"
+        }
+      ]
+    },
+    "keys": {
+      "patterns": [
+        {
+          "match": "=[a-zA-Z0-9_]+:?[^\n]*",
+          "name": "string.quoted.other.protoml"
+        }
+      ]
+    }
+  }
+}
