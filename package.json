@@ -1,0 +1,56 @@
+{
+  "name": "ProtoML VSCode",
+  "displayName": "ProtoML Language Support",
+  "version": "1.0.0",
+  "description": "ProtoML Language Support",
+  "dependencies": {
+    "typescript": "^4.9.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ente/vscode-protoml.git"
+  },
+  "keywords": [
+    "proto",
+    "markup",
+    "language",
+    "notes",
+    "protokoll",
+    "tasks",
+    "syntax"
+  ],
+  "author": "Ente",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ente/vscode-protoml/issues"
+  },
+  "homepage": "https://github.com/ente/vscode-protoml#readme",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Programming Languages"],
+  "activationEvents": ["onLanguage:protoml"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [{
+      "id": "protoml",
+      "aliases": ["ProtoML", "protoml"],
+      "extensions": [".pml"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "protoml",
+      "scopeName": "source.protoml",
+      "path": "./syntaxes/protoml.tmLanguage.json"
+    }]
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "typescript": "^4.7.4",
+    "vscode": "^1.1.38"
+  }
+}
